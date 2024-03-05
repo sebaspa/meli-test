@@ -1,8 +1,10 @@
+@import "../../assets/styles/color.scss";
+
 .product-card {
   grid-template-columns: 1fr;
   display: grid;
   gap: 20px;
-  border-bottom: 1px solid #ebebeb;
+  border-bottom: 1px solid $light-gray;
   padding: 20px 0;
 
   &:last-child {
@@ -22,7 +24,7 @@
   }
 
   &__description {
-    color: #1a1a1a;
+    color: $black;
     .price {
       font-size: 26px;
       font-weight: bold;
@@ -34,7 +36,7 @@
       .icon {
         font-size: 12px;
         border-radius: 50%;
-        background-color: #35cf5e;
+        background-color: $green;
         width: 20px;
         height: 20px;
         display: flex;
@@ -48,7 +50,7 @@
   }
 
   &__location {
-    color: #8e8e8e;
+    color: $dark-gray;
     font-size: 14px;
   }
 }

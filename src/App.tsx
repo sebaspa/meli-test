@@ -1,4 +1,4 @@
-import { Breadcrumb, Header, ProductsList } from './components'
+import { Breadcrumb, Header, Product, ProductsList } from './components'
 
 export const App = (): JSX.Element => {
   return (
@@ -6,6 +6,7 @@ export const App = (): JSX.Element => {
       <Header />
       <div className="container">
         <Breadcrumb />
+        <Product />
         <ProductsList />
       </div>
     </>

@@ -1,3 +1,4 @@
+@import "./color.scss";
 html,
 body,
 div,
@@ -104,7 +105,7 @@ section {
 body {
   line-height: 1;
   font-family: "Roboto", sans-serif;
-  background-color: #ebebeb;
+  background-color: $light-gray;
 }
 ol,
 ul {

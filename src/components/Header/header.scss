@@ -1,5 +1,7 @@
+@import "../../assets/styles/color.scss";
+
 #header {
-  background-color: #ffe600;
+  background-color: $yellow;
   padding: 15px 0;
 
   .container {
@@ -38,7 +40,7 @@
         justify-content: center;
         align-items: center;
         border: 0;
-        background-color: #ebebeb;
+        background-color: $light-gray;
         cursor: pointer;
         color: #1a1a1a;
         font-size: 20px;
