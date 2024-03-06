@@ -13,7 +13,7 @@ const ProductCard = ({ product }: Props): JSX.Element => {
   return (
     <>
       <Link className="product-card" to={`/items/${product.id}`}>
-        <img className='product-card__image' src={image} alt="image" />
+        <img className='product-card__image' src={image} alt="image" loading='lazy' />
         <div className="product-card__description">
           <p className="price">
             {price.toLocaleString('es-AR', { style: 'currency', currency: currencyId })}

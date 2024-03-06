@@ -1,0 +1,19 @@
+@keyframes skeleton {
+  0% {
+    background-color: $light-gray;
+  }
+  50% {
+    background-color: $gray;
+  }
+  100% {
+    background-color: $light-gray;
+  }
+}
+
+.skeletonText {
+  width: 100%;
+  min-height: 16px;
+  border-radius: 4px;
+  animation: skeleton 1s infinite;
+  margin-bottom: 10px;
+}
