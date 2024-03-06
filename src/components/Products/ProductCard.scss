@@ -5,7 +5,7 @@
   display: grid;
   gap: 20px;
   border-bottom: 1px solid $light-gray;
-  padding: 20px 0;
+  padding: 16px 0;
 
   &:last-child {
     border-bottom: 0;
@@ -21,14 +21,15 @@
     object-fit: contain;
     aspect-ratio: 1;
     border-radius: 4px;
+    padding: 16px;
   }
 
   &__description {
     color: $black;
     .price {
-      font-size: 26px;
+      font-size: 24px;
       font-weight: bold;
-      margin-bottom: 20px;
+      margin-bottom: 32px;
       display: flex;
       gap: 10px;
       align-items: center;
@@ -46,11 +47,12 @@
     }
     .description {
       margin-bottom: 10px;
+      font-size: 18px;
     }
   }
 
   &__location {
     color: $dark-gray;
-    font-size: 14px;
+    font-size: 12px;
   }
 }

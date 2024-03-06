@@ -6,13 +6,13 @@ interface Props {
 }
 
 const ProductDetail = ({ product }: Props): JSX.Element => {
-  const { title, price, thumbnail, initial_quantity, descriptions, permalink } = product
+  const { title, price, thumbnail, initial_quantity: intialQuantity, descriptions, permalink } = product
   return (
     <div className='product'>
       <div className="product__grid">
         <img src={thumbnail} className='product__image' alt="product" />
         <div className="productDescription">
-          <p className='productDescription__sold'>New  - {initial_quantity} sold</p>
+          <p className='productDescription__sold'>New  - {intialQuantity} sold</p>
           <p className="productDescription__title">{title}.</p>
           <p className="productDescription__price">
             {price.toLocaleString('es-AR', { style: 'currency', currency: 'ARS' })}
