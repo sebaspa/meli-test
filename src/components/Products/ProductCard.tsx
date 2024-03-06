@@ -9,7 +9,7 @@ interface Props {
 }
 
 const ProductCard = ({ product }: Props): JSX.Element => {
-  const { image, price, title, officialStoreName, domainId } = product
+  const { image, price, title, officialStoreName, domainId, currencyId } = product
   return (
     <>
       <Link to={`/items/${product.id}`}>
@@ -17,7 +17,7 @@ const ProductCard = ({ product }: Props): JSX.Element => {
           <img className='product-card__image' src={image} alt="image" />
           <div className="product-card__description">
             <p className="price">
-              {price.toLocaleString('es-AR', { style: 'currency', currency: 'ARS' })}
+              {price.toLocaleString('es-AR', { style: 'currency', currency: currencyId })}
               <span className="icon">
                 <FaTruck />
               </span>

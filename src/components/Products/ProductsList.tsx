@@ -17,7 +17,8 @@ const ProductsList = ({ products }: Props): JSX.Element => {
             price: product.price,
             title: product.title,
             officialStoreName: product.official_store_name,
-            domainId: product.domain_id
+            domainId: product.domain_id,
+            currencyId: product.currency_id
           }} />
         ))
       }

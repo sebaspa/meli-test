@@ -97,6 +97,7 @@ export interface ProductSimple {
   title: string
   officialStoreName: string
   domainId: string
+  currencyId: string
 }
 
 export interface ProductSingle {
