@@ -6,6 +6,7 @@ import ProductsList from './Products/ProductsList'
 import ProductDetail from './Products/ProductDetail'
 import ProductDetailSkeleton from './Products/ProductDetailSkeleton'
 import ProductsListSkeleton from './Products/ProductsListSkeleton'
+import Seo from './Seo'
 
 export {
   Header,
@@ -15,5 +16,6 @@ export {
   ProductsList,
   ProductDetail,
   ProductDetailSkeleton,
-  ProductsListSkeleton
+  ProductsListSkeleton,
+  Seo
 }

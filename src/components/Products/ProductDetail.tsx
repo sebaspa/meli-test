@@ -10,7 +10,7 @@ const ProductDetail = ({ product }: Props): JSX.Element => {
   return (
     <div className='product'>
       <div className="product__grid">
-        <img src={thumbnail} className='product__image' alt="product" />
+        <img src={thumbnail} className='product__image' alt={title} />
         <div className="productDescription">
           <p className='productDescription__sold'>New  - {intialQuantity} sold</p>
           <p className="productDescription__title">{title}.</p>

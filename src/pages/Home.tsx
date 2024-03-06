@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Header, ProductsList, ProductsListSkeleton } from '../components'
+import { Header, ProductsList, ProductsListSkeleton, Seo } from '../components'
 import { getProducts } from '../api/products'
 import type { Product } from '../types/product'
 
@@ -19,6 +19,13 @@ const Home = (): JSX.Element => {
 
   return (
     <>
+      <Seo
+        title="Meli - Home"
+        description="Home page"
+        name="description"
+        type="website"
+        href="/"
+      />
       <Header />
       <div className="container">
         <br />

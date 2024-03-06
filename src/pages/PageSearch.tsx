@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
-import { Breadcrumb, Header, ProductsList, ProductsListSkeleton } from '../components'
+import { Breadcrumb, Header, ProductsList, ProductsListSkeleton, Seo } from '../components'
 import { getProductsByName } from '../api/products'
 
 import type { Product } from '../types/product'
@@ -24,6 +24,13 @@ const PageSearch = (): JSX.Element => {
 
   return (
     <>
+      <Seo
+        title={`Meli - Search - ${searchText}`}
+        description="Search page"
+        name="description"
+        type="website"
+        href="/items"
+      />
       <Header />
       <div className="container">
         <Breadcrumb />

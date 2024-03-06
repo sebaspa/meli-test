@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { Breadcrumb, Header, ProductDetail, ProductDetailSkeleton } from '../components'
+import { Breadcrumb, Header, ProductDetail, ProductDetailSkeleton, Seo } from '../components'
 import { getProduct } from '../api/products'
 
 import type { ProductSingle } from '../types/product'
@@ -28,6 +28,13 @@ const PageProduct = (): JSX.Element => {
 
   return (
     <>
+    <Seo
+      title={`Meli - ${product?.title}`}
+      description="Product page"
+      name="description"
+      type="article"
+      href={`/items/${id}`}
+    />
       <Header />
       <div className="container">
         <Breadcrumb />
