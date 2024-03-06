@@ -2,20 +2,31 @@ import { Link } from 'react-router-dom'
 import { FaTruck } from 'react-icons/fa'
 
 import './ProductCard.scss'
+import { type ProductSimple } from '../../types/product'
 
-const ProductCard = (): JSX.Element => {
+interface Props {
+  product: ProductSimple
+}
+
+const ProductCard = ({ product }: Props): JSX.Element => {
+  const { image, price, title, officialStoreName, domainId } = product
   return (
     <>
       <Link to='/items/1'>
         <div className="product-card">
-          <img className='product-card__image' src="https://dummyimage.com/180x180/cecece/fff" alt="image" />
+          <img className='product-card__image' src={image} alt="image" />
           <div className="product-card__description">
-            <p className="price">$100.00 <span className="icon"><FaTruck /></span></p>
-            <p className="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam quidem quae perferendis.</p>
-            <p className='detail'>Lorem ipsum dolor sit.</p>
+            <p className="price">
+              {price.toLocaleString('es-AR', { style: 'currency', currency: 'ARS' })}
+              <span className="icon">
+                <FaTruck />
+              </span>
+            </p>
+            <p className="description">{title}.</p>
+            <p className='detail'>{officialStoreName}.</p>
           </div>
           <div className="product-card__location">
-            <p className="city">Lorem, ipsum dolor.</p>
+            <p className="city">{domainId}.</p>
           </div>
         </div>
       </Link>
