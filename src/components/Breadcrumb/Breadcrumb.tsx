@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import type { Filters } from '../../types/product'
 import './Breadcrumb.scss'
 
@@ -11,7 +12,7 @@ const Breadcrumb = ({ filters }: BreadcrumbProps): JSX.Element => {
       <ul>
         {filters.map((filter, index) => (
           <li key={filter.id} className={index === filters.length - 1 ? 'active' : ''} >
-            {filter.values[0].name}
+            <Link to={`/items?search=${filter.values[0].name}`} target='_self'>{filter.values[0].name}</Link>
           </li>
         ))}
       </ul>
