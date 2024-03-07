@@ -3,10 +3,11 @@ import { useSearchParams } from 'react-router-dom'
 import { Breadcrumb, Header, ProductsList, ProductsListSkeleton, Seo } from '../components'
 import { getProductsByName } from '../api/products'
 
-import type { Product } from '../types/product'
+import type { Filters, Product } from '../types/product'
 
 const PageSearch = (): JSX.Element => {
   const [products, setProducts] = useState<Product[]>([])
+  const [filters, setFilters] = useState<Filters[]>([])
   const [isLoading, setIsLoading] = useState<boolean>(true)
   const [params] = useSearchParams()
   const searchText = params.get('search')
@@ -16,7 +17,8 @@ const PageSearch = (): JSX.Element => {
     setIsLoading(true)
     const getProductsFromApi = async (): Promise<void> => {
       const productsFromApi = await getProductsByName(searchText)
-      setProducts(productsFromApi)
+      setProducts(productsFromApi.products)
+      setFilters(productsFromApi.filters)
       setIsLoading(false)
     }
     getProductsFromApi().catch(console.error)
@@ -33,7 +35,7 @@ const PageSearch = (): JSX.Element => {
       />
       <Header />
       <div className="container">
-        <Breadcrumb />
+        <Breadcrumb filters={filters} />
         {isLoading && <ProductsListSkeleton />}
         <ProductsList products={products} />
       </div>

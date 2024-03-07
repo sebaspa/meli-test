@@ -148,6 +148,11 @@ export interface ProductSingle {
   catalog_listing: boolean
 }
 
+export interface SearchProduct {
+  product: ProductSingle
+  filters: Filters[]
+}
+
 export interface SaleTerm {
   id: string
   name: string
@@ -219,4 +224,27 @@ export interface Value2 {
 export interface Struct2 {
   number: number
   unit: string
+}
+
+export interface PathFromRoot {
+  id: string
+  name: string
+}
+
+export interface valueFilter {
+  id: string
+  name: string
+  path_from_root: PathFromRoot[]
+}
+
+export interface Filters {
+  id: string
+  name: string
+  type: string
+  values: valueFilter[]
+}
+
+export interface SearchResults {
+  products: Product[]
+  filters: Filters[]
 }

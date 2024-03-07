@@ -10,7 +10,7 @@ const Home = (): JSX.Element => {
     setIsLoading(true)
     const getProductsFromApi = async (): Promise<void> => {
       const productsFromApi = await getProducts()
-      setProducts(productsFromApi)
+      setProducts(productsFromApi.products)
       setIsLoading(false)
     }
 

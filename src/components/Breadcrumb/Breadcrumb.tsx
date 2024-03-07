@@ -1,14 +1,19 @@
+import type { Filters } from '../../types/product'
 import './Breadcrumb.scss'
 
-const Breadcrumb = (): JSX.Element => {
+interface BreadcrumbProps {
+  filters: Filters[]
+}
+
+const Breadcrumb = ({ filters }: BreadcrumbProps): JSX.Element => {
   return (
     <div id="breadcrumb">
       <ul>
-        <li>Electrónica audio y video</li>
-        <li>IPod</li>
-        <li>Reproductores</li>
-        <li>IPod mini</li>
-        <li className='active'>32 GB</li>
+        {filters.map((filter, index) => (
+          <li key={filter.id} className={index === filters.length - 1 ? 'active' : ''} >
+            {filter.values[0].name}
+          </li>
+        ))}
       </ul>
     </div>
   )

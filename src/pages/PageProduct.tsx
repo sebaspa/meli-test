@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { Breadcrumb, Header, ProductDetail, ProductDetailSkeleton, Seo } from '../components'
-import { getProduct } from '../api/products'
+import { getProduct, getProductsByCategory } from '../api/products'
 
-import type { ProductSingle } from '../types/product'
+import type { Filters, ProductSingle } from '../types/product'
 
 const PageProduct = (): JSX.Element => {
   const [product, setProduct] = useState<ProductSingle | null>(null)
   const [isLoading, setIsLoading] = useState<boolean>(true)
+  const [filters, setFilters] = useState<Filters[]>([])
   const params = useParams()
   const id = params.id
 
@@ -26,6 +27,15 @@ const PageProduct = (): JSX.Element => {
     getProductFromApi().catch(console.error)
   }, [])
 
+  useEffect(() => {
+    if (product === null) return
+    const getProductsByCategoryApi = async (): Promise<void> => {
+      const productsByCategory = await getProductsByCategory(product?.category_id)
+      setFilters(productsByCategory.filters)
+    }
+    getProductsByCategoryApi().catch(console.error)
+  }, [product])
+
   return (
     <>
     <Seo
@@ -37,7 +47,7 @@ const PageProduct = (): JSX.Element => {
     />
       <Header />
       <div className="container">
-        <Breadcrumb />
+        <Breadcrumb filters={filters} />
         {isLoading && <ProductDetailSkeleton />}
         {product !== null && <ProductDetail product={product} />}
       </div>
