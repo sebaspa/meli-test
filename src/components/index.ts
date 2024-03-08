@@ -6,6 +6,7 @@ import ProductsList from './Products/ProductsList'
 import ProductDetail from './Products/ProductDetail'
 import ProductDetailSkeleton from './Products/ProductDetailSkeleton'
 import ProductsListSkeleton from './Products/ProductsListSkeleton'
+import Pagination from './Pagination/Pagination'
 import Seo from './Seo'
 
 export {
@@ -17,5 +18,6 @@ export {
   ProductDetail,
   ProductDetailSkeleton,
   ProductsListSkeleton,
+  Pagination,
   Seo
 }

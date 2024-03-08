@@ -247,4 +247,12 @@ export interface Filters {
 export interface SearchResults {
   products: Product[]
   filters: Filters[]
+  paging: Paginate
+}
+
+export interface Paginate {
+  total: number
+  primary_results: number
+  offset: number
+  limit: number
 }

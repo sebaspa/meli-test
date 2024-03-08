@@ -5,12 +5,13 @@ import type { ProductSingle, SearchResults } from '../types/product'
  *
  * @return {Promise<Product[]>} The subset of product results
  */
-export const getProducts = async (): Promise<SearchResults> => {
-  const response = await fetch(`${import.meta.env.VITE_API_MELI_URL}/sites/MLA/search?q=:query`)
+export const getProducts = async (limit = 4, offset = 0): Promise<SearchResults> => {
+  const response = await fetch(`${import.meta.env.VITE_API_MELI_URL}/sites/MLA/search?q=:query&limit=${limit}&offset=${offset}`)
   const data = await response.json()
   const dataResults = {
-    products: data.results.slice(0, 6),
-    filters: data.filters
+    products: data.results,
+    filters: data.filters,
+    paging: data.paging
   }
   return dataResults
 }
@@ -33,12 +34,13 @@ export const getProduct = async (id: string): Promise<ProductSingle> => {
  * @param {string} name - The name of the product to search for
  * @return {Promise<Product[]>} An array of products matching the provided name
  */
-export const getProductsByName = async (name: string): Promise<SearchResults> => {
-  const response = await fetch(`${import.meta.env.VITE_API_MELI_URL}/sites/MLA/search?q=${name}`)
+export const getProductsByName = async (name: string, limit = 4, offset = 0): Promise<SearchResults> => {
+  const response = await fetch(`${import.meta.env.VITE_API_MELI_URL}/sites/MLA/search?q=${name}&limit=${limit}&offset=${offset}`)
   const data = await response.json()
   const dataResults = {
-    products: data.results.slice(0, 4),
-    filters: data.filters
+    products: data.results,
+    filters: data.filters,
+    paging: data.paging
   }
   return dataResults
 }
@@ -50,11 +52,12 @@ export const getProductsByName = async (name: string): Promise<SearchResults> =>
  * @return {Promise<SearchResults>} The search results containing products and filters.
  */
 export const getProductsByCategory = async (category: string): Promise<SearchResults> => {
-  const response = await fetch(`${import.meta.env.VITE_API_MELI_URL}/sites/MLA/search?category=${category}`)
+  const response = await fetch(`${import.meta.env.VITE_API_MELI_URL}/sites/MLA/search?category=${category}&limit=6&offset=0`)
   const data = await response.json()
   const dataResults = {
-    products: data.results.slice(0, 6),
-    filters: data.filters
+    products: data.results,
+    filters: data.filters,
+    paging: data.paging
   }
   return dataResults
 }
